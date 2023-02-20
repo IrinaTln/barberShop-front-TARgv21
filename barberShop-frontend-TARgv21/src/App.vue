@@ -11,7 +11,7 @@ import barberDetails from "./components/barberDetails.vue"
         },
         data(){
             return{
-                id: 1,
+                id: 2,
                 barber: {
                     name: "Marko Tasane",
                     bookingDate: "2023-02-15",
@@ -25,7 +25,8 @@ import barberDetails from "./components/barberDetails.vue"
         methods:{
             async fetchData(){
                 const url = `${API_URL}/${this.id}`
-                this.barber = await (await fetch(url)).json()
+                this.barber = (await (await fetch(url)).json())
+                console.log(this.barber)
             }
         }
     }
