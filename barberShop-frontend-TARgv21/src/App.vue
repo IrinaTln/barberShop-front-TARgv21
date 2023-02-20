@@ -1,6 +1,6 @@
 <template>
     <!-- <barber-details :barber="barber"></barber-details> -->
-    <barber-list> :barbers="barbers"</barber-list>
+    <barber-list :barbers="barbers"></barber-list>
 </template>
 <script>
 const API_URL = "http://localhost:8080/barbers"
@@ -31,6 +31,7 @@ import barberList from "./components/barberList.vue"
             async fetchData(){
                 const url = `${API_URL}`
                 this.barbers = await (await fetch(url)).json()
+                console.log(this.barbers)
             }
         }
     }
