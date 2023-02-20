@@ -10,13 +10,6 @@
         props: {
             barber: Object,
             required: true
-        },
-        data(){
-            return {
-                name: this.barber.name,
-                bookingDate: this.barber.bookingDate,
-                bookingTime: this.barber.bookingTime
-            }
         }
     }
 </script>
