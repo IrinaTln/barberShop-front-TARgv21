@@ -1,16 +1,16 @@
 <template>
-    <!-- <barber-details :barber="barber"></barber-details> -->
+    <!--<barber-details :barber="barber"></barber-details>-->
     <barber-list :barbers="barbers"></barber-list>
 </template>
 <script>
 const API_URL = "http://localhost:8080/barbers"
 
-import barberDetails from "./components/barberDetails.vue"
+/* import barberDetails from "./components/barberDetails.vue" */
 import barberList from "./components/barberList.vue"
 
     export default{
         components:{
-            barberDetails,
+           /*  barberDetails, */
             barberList
         },
         data(){
@@ -30,8 +30,7 @@ import barberList from "./components/barberList.vue"
         methods:{
             async fetchData(){
                 const url = `${API_URL}`
-                this.barbers = await (await fetch(url)).json()
-                console.log(this.barbers)
+                this.barbers= await (await fetch(url)).json()
             }
         }
     }
