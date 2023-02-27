@@ -1,17 +1,20 @@
 <template>
     <!--<barber-details :barber="barber"></barber-details>-->
     <barber-list :barbers="barbers"></barber-list>
+    <barber-form></barber-form>
 </template>
 <script>
 const API_URL = "http://localhost:8080/barbers"
 
-/* import barberDetails from "./components/barberDetails.vue" */
+import barberDetails from "./components/barberDetails.vue"
 import barberList from "./components/barberList.vue"
+import barberForm from  "./components/barberForm.vue"
 
     export default{
         components:{
-           /*  barberDetails, */
-            barberList
+            barberDetails,
+            barberList,
+            barberForm
         },
         data(){
             return{

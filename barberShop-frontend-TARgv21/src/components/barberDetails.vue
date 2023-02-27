@@ -3,8 +3,8 @@
         <h1>Name: {{ currentBarber.barberName }}</h1>
         <ul>
             <li v-for="(booking, index) in currentBarber.bookings" :key="index">
-                Booking date: {{ formatDate(booking.bookingDate) }}
-                Booking time: {{ booking.bookingTime }}
+                Booking date: {{ formatDate(booking.bookingDate) }} <br>
+                Booking time: {{ booking.bookingTime }}<hr>
             </li>
         </ul>
 
