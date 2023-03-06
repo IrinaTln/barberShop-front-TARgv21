@@ -43,6 +43,7 @@ export default {
             throw data.error
         } else {
             this.barber ={barberName: ""}
+            this.$emit("submit")
         }
     })
       .catch(error => console.log("Error:", error)) 

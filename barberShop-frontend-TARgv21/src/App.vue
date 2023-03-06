@@ -1,7 +1,7 @@
 <template>
     <!--<barber-details :barber="barber"></barber-details>-->
-    <barber-list :barbers="barbers"></barber-list>
-    <barber-form></barber-form>
+    <barber-list :barbers="barbers" @deleted="removeItem"></barber-list>
+    <barber-form @submit="fetchData"></barber-form>
 </template>
 <script>
 const API_URL = "http://localhost:8080/barbers"
@@ -34,6 +34,10 @@ import barberForm from  "./components/barberForm.vue"
             async fetchData(){
                 const url = `${API_URL}`
                 this.barbers= await (await fetch(url)).json()
+            },
+            removeItem(id_barber){
+                console.log("Item " , id_barber)
+                this.barbers.splice(this.barbers.map(i=>i.id_barber).indexOf(id_barber), 1)
             }
         }
     }

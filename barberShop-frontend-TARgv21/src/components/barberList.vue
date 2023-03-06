@@ -34,12 +34,21 @@
         Are you sure?
       </template>
       <template #footer>
-        <button class="modal-default-button button-danger" @click="deleteBarber">
-          Yes
-        </button>
-        <button class="modal-default-button button-safe" @click="barberDeleteId = 0">
-          No
-        </button>
+        <div v-if="!error">
+            <button class="modal-default-button button-danger" @click="deleteBarber">
+            Yes
+            </button>
+            <button class="modal-default-button button-safe" @click="barberDeleteId = 0">
+            No
+            </button>
+        </div>
+        <div v-else>
+            <span class="text-danger">{{  error }}</span>
+            
+            <button class="modal-default-button button-safe" @click="barberDeleteId = 0">
+            Ok
+            </button>
+        </div>
       </template>
     </modal>
   </Teleport>
@@ -56,11 +65,13 @@ import Modal from "./modal.vue"
             barbers: Array,
             require: true
         },
+        emits: ["deleted"],
         data() {
             return{
                 barberDetailId: 0,
                 barberDeleteId: 0,
-                currentBarber: null
+                currentBarber: null,
+                error: null
             }
         },
         watch: {
@@ -70,18 +81,36 @@ import Modal from "./modal.vue"
             },
             barberDeleteId(newId, oldId) { 
                 this.currentBarber = this.barbers.find((item)=>item.id_barber ==newId);
+                this.error = null
             }
         },
         methods: {
             deleteBarber() {
                 const api_url = import.meta.env.VITE_API_URL
-                fetch(`${api_url}/barbers/${barberDeleteId}`, {
+                fetch(`${api_url}/barbers/${this.barberDeleteId}`, {
                     method: "delete",
                     })
-                    .then((responce) => this.barberDeleteId =0)
-                    .then((data) => console.log(data))
-                    .catch(error => console.log(error))
+                    .then(async response => {
+                        const isJson = response.headers.get("Content-type")?.includes("application/json")
+                        const data = isJson && await response.json()
+                        if(!response.ok) {
+                            const error = (data && data.error) || responce.status
+                            return Promise.reject(error)
+                        }
+                        this.$emit("deleted", this.barberDeleteId)
+                        this.barberDeleteId = 0
+                    })
+                    .catch(error => {
+                        console.log("Barber Delete error: ", error)
+                        this.error = error
+                    })
             }
         },
     }
 </script>
+
+<style>
+.text-danger {
+    color: red;
+}
+</style>
