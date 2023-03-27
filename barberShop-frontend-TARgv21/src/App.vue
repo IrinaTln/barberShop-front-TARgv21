@@ -1,7 +1,8 @@
 <template>
-    <!--<barber-details :barber="barber"></barber-details>-->
+    <!--<barber-details :barber="barber"></barber-details>
     <barber-list :barbers="barbers" @deleted="removeItem"></barber-list>
-    <barber-form @submit="fetchData"></barber-form>
+    <barber-form @submit="fetchData"></barber-form>-->
+    <barber-client :id_customer="id_customer"></barber-client>
 </template>
 <script>
 const API_URL = "http://localhost:8080/barbers"
@@ -9,16 +10,19 @@ const API_URL = "http://localhost:8080/barbers"
 import barberDetails from "./components/barberDetails.vue"
 import barberList from "./components/barberList.vue"
 import barberForm from  "./components/barberForm.vue"
+import barberClient from "./components/barberClient.vue"
 
     export default{
         components:{
             barberDetails,
             barberList,
-            barberForm
+            barberForm,
+            barberClient
         },
         data(){
             return{
                 id: 2,
+                id_customer: 1,
                 barber: {
                     name: "Marko Tasane",
                     bookingDate: "2023-02-15",
