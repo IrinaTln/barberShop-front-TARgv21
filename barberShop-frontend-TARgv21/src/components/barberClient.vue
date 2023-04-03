@@ -3,7 +3,9 @@
 </template>
 <script>
 const API_URL = "http://localhost:8080/customers"
+
 import barberList from "./barberList.vue"
+
 export default{
         components:{
             barberList,
@@ -25,9 +27,7 @@ export default{
             async fetchData(){
                 const url = `${API_URL}/${this.id_customer}`
                 const customerData = await (await fetch(url)).json()
-                console.log(customerData)
                 this.barbers = customerData.bookings.map(gp=>gp.barber)
-                console.log(this.barber)
             },
         }
     }

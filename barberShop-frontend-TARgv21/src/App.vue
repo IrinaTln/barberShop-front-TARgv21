@@ -1,48 +1,30 @@
 <template>
-    <!--<barber-details :barber="barber"></barber-details>
-    <barber-list :barbers="barbers" @deleted="removeItem"></barber-list>
-    <barber-form @submit="fetchData"></barber-form>-->
-    <barber-client :id_customer="id_customer"></barber-client>
+    <nav>
+        <router-link to="/">Go to Home</router-link>
+        <router-link to="/barberClient">Go to Barber Client</router-link>
+    </nav>
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <router-view></router-view>
 </template>
 <script>
-const API_URL = "http://localhost:8080/barbers"
 
-import barberDetails from "./components/barberDetails.vue"
-import barberList from "./components/barberList.vue"
-import barberForm from  "./components/barberForm.vue"
-import barberClient from "./components/barberClient.vue"
+import {RouterLink, RouterView} from "vue-router";
 
-    export default{
+export default{
         components:{
-            barberDetails,
-            barberList,
-            barberForm,
-            barberClient
+            RouterView,
+            RouterLink
         },
         data(){
             return{
-                id: 2,
-                id_customer: 1,
-                barber: {
-                    name: "Marko Tasane",
-                    bookingDate: "2023-02-15",
-                    bookingTime: "10:00:00"
-                }, 
-                barbers: []
-            }
-        },
-        created(){
-            this.fetchData()
-        },
-        methods:{
-            async fetchData(){
-                const url = `${API_URL}`
-                this.barbers= await (await fetch(url)).json()
-            },
-            removeItem(id_barber){
-                console.log("Item " , id_barber)
-                this.barbers.splice(this.barbers.map(i=>i.id_barber).indexOf(id_barber), 1)
+               
             }
         }
     }
 </script>
+<style>
+    nav a {
+        margin-left: 1rem;
+    }
+</style>
