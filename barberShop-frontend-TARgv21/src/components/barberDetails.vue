@@ -34,8 +34,6 @@ export default {
         formatDate(dateString) {
             return useDateFormating(dateString)
         }
-
     }
-
 }
 </script>

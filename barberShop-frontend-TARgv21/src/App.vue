@@ -1,7 +1,10 @@
 <template>
     <nav>
-        <router-link to="/">Go to Home</router-link>
-        <router-link to="/barberClient">Go to Barber Client</router-link>
+        <router-link to="/">Go to Barbers</router-link>
+        <router-link to="/barberClient">Go to Customer</router-link>
+        <router-link to="/customerList">Go to Customer's List</router-link>
+        <router-link to="/serviceList">Go to Services</router-link>
+        <router-link to="/bookingList">Go to Bookings</router-link>
     </nav>
     <!-- route outlet -->
     <!-- component matched by the route will render here -->

@@ -9,6 +9,21 @@ import { createRouter, createWebHistory } from "vue-router"
             component: () => import("../views/barberListView.vue")
         },
         {
+          path: "/customerList",
+          name: "customerList",
+          component: () => import("../views/customerListView.vue")
+        },
+        {
+          path: "/serviceList",
+          name: "serviceList",
+          component: () => import("../views/serviceListView.vue")
+        },
+        {
+          path: "/bookingList",
+          name: "bookingList",
+          component: () => import("../views/bookingListView.vue")
+        },
+        {
             path: "/barberClient/:id_customer",
             name: "barberClient",
             component: () => import("../views/barberClientView.vue"),

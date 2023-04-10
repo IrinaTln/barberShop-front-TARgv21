@@ -38,7 +38,7 @@ import barberForm from  "../components/barberForm.vue"
                 this.barbers= await (await fetch(url)).json()
             },
             removeItem(id_barber){
-                console.log("Item " , id_barber)
+                console.log("Item ", id_barber)
                 this.barbers.splice(this.barbers.map(i=>i.id_barber).indexOf(id_barber), 1)
             }
         }
