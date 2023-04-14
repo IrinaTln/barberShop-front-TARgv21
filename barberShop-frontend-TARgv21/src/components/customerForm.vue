@@ -10,7 +10,7 @@
         <label>Customer e-mail:  
             <input type="email" v-model="customer.mail">
         </label>
-        <button type="submit">Add customer</button>
+        <button type="submit">Add</button>
     </form>
     <p>
         <span v-for="error in errors">{{ error }}<br></span>

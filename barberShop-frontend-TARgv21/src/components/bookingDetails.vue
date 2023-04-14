@@ -5,10 +5,11 @@
             <li>               
                 Booking time: {{ currentBooking.bookingTime }} <br>
                 Customer: {{ currentBooking.customer.customerName }} <br>
-                Phone: {{ currentBooking.customer.phone }} <hr>
+                Phone: {{ currentBooking.customer.phone }} <br>
+                Service: {{ currentBooking.service.serviceName }} <br>
+                Barber: {{ currentBooking.barber.barberName }}<hr>
             </li>
-        </ul> 
-
+        </ul>
     </div>
 </template>
 <script>
@@ -21,7 +22,19 @@ export default {
     },
     data() {
         return {
-            currentBooking: { id_booking: "", customer: {customerName: "", phone: "",}}
+            currentBooking: { 
+                id_booking: "", 
+                customer: {
+                    customerName: "", 
+                    phone: ""
+                }, 
+                service: {
+                    serviceName: ""
+                }, 
+                barber: {
+                    barberName: ""
+                }
+            }
         }
     },
     mounted() {

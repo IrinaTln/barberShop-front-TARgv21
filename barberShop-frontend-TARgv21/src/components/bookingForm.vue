@@ -8,6 +8,18 @@
             Booking time:
             <input type="time" v-model="booking.bookingTime">
         </label>
+        <label>
+            Customer's ID:
+            <input type="number" v-model="booking.id_customer">
+        </label>
+        <label>
+            Service's ID:
+            <input type="number" v-model="booking.id_service">
+        </label>
+        <label>
+            Barber's ID:
+            <input type="number" v-model="booking.id_barber">
+        </label>
         <button type="submit">Add booking</button>
     </form>
     <p>

@@ -2,8 +2,8 @@
     <div>
         <h1>Services: {{ currentService.serviceName }}</h1>    
          <ul>
-            <li v-for="(booking, index) in currentService.bookings" :key="index">
-                Service price: {{ service.servicePrice }}
+            <li >
+                Service price: {{ currentService.servicePrice }}
             </li>
         </ul> 
 
@@ -19,7 +19,7 @@ export default {
     },
     data() {
         return {
-            currentService: { name: "", price: ""}
+            currentService: { serviceName: "", servicePrice: ""}
         }
     },
     mounted() {

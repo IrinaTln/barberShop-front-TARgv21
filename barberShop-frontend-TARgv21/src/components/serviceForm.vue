@@ -4,6 +4,10 @@
             Service name:
             <input type="text" v-model="service.serviceName">
         </label>
+        <label>
+            Service price:
+            <input type="number" v-model="service.servicePrice">
+        </label>
         <button type="submit">Add service</button>
     </form>
     <p>
