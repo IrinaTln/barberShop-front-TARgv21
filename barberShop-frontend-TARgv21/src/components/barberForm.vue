@@ -21,6 +21,7 @@ export default {
     errors: null
     }
   },
+  emits: ["submit"],
   computed: {
     canSubmit() {
       return this.barberName.length > 0

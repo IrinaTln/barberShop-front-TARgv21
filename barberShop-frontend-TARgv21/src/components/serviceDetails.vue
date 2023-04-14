@@ -2,7 +2,7 @@
     <div>
         <h1>Services: {{ currentService.serviceName }}</h1>    
          <ul>
-            <li >
+            <li v-for="(booking, index) in currentService.bookings" :key="index">
                 Service price: {{ service.servicePrice }}
             </li>
         </ul> 

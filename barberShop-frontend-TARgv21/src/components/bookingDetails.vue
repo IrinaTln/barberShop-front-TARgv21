@@ -2,10 +2,10 @@
     <div>
         <h1>Bookings: {{ currentBooking.id_booking }}</h1>    
          <ul>
-            <li v-for="(customer, index) in currentBooking.customers" :key="index">               
-                Booking time: {{ booking.bookingTime }} <br>
-                Customer: {{ customer.customerName }} <br>
-                Phone: {{ customer.phone }} <hr>
+            <li>               
+                Booking time: {{ currentBooking.bookingTime }} <br>
+                Customer: {{ currentBooking.customer.customerName }} <br>
+                Phone: {{ currentBooking.customer.phone }} <hr>
             </li>
         </ul> 
 
@@ -21,7 +21,7 @@ export default {
     },
     data() {
         return {
-            currentBooking: { id_booking: ""}
+            currentBooking: { id_booking: "", customer: {customerName: "", phone: "",}}
         }
     },
     mounted() {
@@ -31,6 +31,7 @@ export default {
         async fetchData() {
             const url = `${API_URL}`
             this.currentBooking = await (await fetch(url + "/" + this.booking.id_booking)).json()
+            console.log("bookingDetails",this.currentBooking );
         },
         formatDate(dateString) {
             return useDateFormating(dateString)

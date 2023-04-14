@@ -3,6 +3,12 @@
         <label>
             Customer name:
             <input type="text" v-model="customer.customerName">
+          </label>
+        <label> Customer phone:
+          <input type="number" v-model="customer.phone">
+        </label>
+        <label>Customer e-mail:  
+            <input type="email" v-model="customer.mail">
         </label>
         <button type="submit">Add customer</button>
     </form>
@@ -16,21 +22,24 @@ export default {
   data() {
     return {
       customer: {
-        customerName: ""
+        customerName: "",
+        phone: "",
+        mail: ""
     },
     errors: null
     }
   },
+  emits: ["submit"],
   computed: {
     canSubmit() {
-      return this.customerName.length > 0
+      return this.customer.customerName.length > 0
     }
   },
   methods: {
-    addBarber() {
+    addCustomer() {
       this.errors = null
       const api_url = import.meta.env.VITE_API_URL
-      fetch(api_url + "/barbers", {
+      fetch(api_url + "/customers", {
         method: "post",
         body: JSON.stringify(this.customer),
         headers: {'Content-Type': 'application/json; charset=utf-8'

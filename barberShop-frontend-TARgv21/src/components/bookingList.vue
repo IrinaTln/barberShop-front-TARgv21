@@ -17,7 +17,7 @@
     </table>
     <Teleport to="body">
     <!-- use the modal component, pass in the prop -->
-        <modal :show="bookingDetailId !==0" @close="bookingDetailId = 0">
+    <modal :show="bookingDetailId !==0" @close="bookingDetailId = 0">
         <template #header>{{ currentBooking.id_booking }}</template>
         <template #body>
             <bookingDetails :booking="currentBooking"></bookingDetails>

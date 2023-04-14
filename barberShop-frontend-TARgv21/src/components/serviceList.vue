@@ -87,7 +87,7 @@ import Modal from "./modal.vue"
         methods: {
             deleteService() {
                 const api_url = import.meta.env.VITE_API_URL
-                fetch(`${api_url}/barbers/${this.serviceDeleteId}`, {
+                fetch(`${api_url}/services/${this.serviceDeleteId}`, {
                     method: "delete",
                     })
                     .then(async response => {
@@ -101,7 +101,7 @@ import Modal from "./modal.vue"
                         this.serviceDeleteId = 0
                     })
                     .catch(error => {
-                        console.log("Barber Delete error: ", error)
+                        console.log("Service Delete error: ", error)
                         this.error = error
                     })
             }

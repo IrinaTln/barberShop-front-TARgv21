@@ -13,8 +13,8 @@ import serviceForm from  "../components/serviceForm.vue"
 
     export default{
         components:{
-            serviceDetails,
             serviceList,
+            serviceDetails,
             serviceForm,
         },
         data(){
