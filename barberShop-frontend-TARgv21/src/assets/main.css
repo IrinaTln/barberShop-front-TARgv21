@@ -39,6 +39,7 @@ a,
   width: 100%;
   border: none;
   margin-bottom: 20px;
+  margin-top: 20px;
   border-collapse: separate;
 }
 table thead th {

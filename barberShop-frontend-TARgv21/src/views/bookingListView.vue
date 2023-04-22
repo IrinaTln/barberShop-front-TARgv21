@@ -1,5 +1,5 @@
 <template>
-    <booking-details :booking="booking"></booking-details>
+   <!--  <booking-details :booking="booking"></booking-details> -->
     <booking-list :bookings="bookings" @deleted="removeItem"></booking-list>
     <booking-form @submit="fetchData"></booking-form>
 </template>

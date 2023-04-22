@@ -1,5 +1,5 @@
 <template>
-    <service-details :service="service"></service-details>
+    <!-- <service-details :service="service"></service-details> -->
     <service-list :services="services" @deleted="removeItem"></service-list>
     <service-form @submit="fetchData"></service-form>
 </template>
